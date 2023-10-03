@@ -5,12 +5,10 @@ import Leftsidenav from "./Page/Navbar/Leftsidenav";
 import Navbar from "./Page/Navbar/Navbar";
 import Rightsitenav from "./Page/Navbar/Rightsitenav";
 import { DataContex } from "../Firebase/Authprovider";
-
+import Homenews from "./Page/Homenews";
 
 const Home = () => {
-
   const data = useContext(DataContex);
- 
 
   return (
     <div className="mb-8">
@@ -22,11 +20,9 @@ const Home = () => {
           <Leftsidenav />
         </div>
         <div className="md:col-span-2 border">
-          <h2>news coming soon{data.length}</h2>
           {
-            
+            data.map((news) => <Homenews key={news.id} news={news}></Homenews> )
           }
-
         </div>
         <div className="border">
           <Rightsitenav />

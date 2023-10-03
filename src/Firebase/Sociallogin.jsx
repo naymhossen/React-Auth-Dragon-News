@@ -22,7 +22,7 @@ const Sociallogin = () => {
             <button onClick={() => handleSocialLogin(googleLogin)} className="btn btn-outline">
             <GrGoogle /> Login With Google
           </button>
-            <button onClick={() => handleSocialLogin(googleLogin)} className="btn btn-outline">
+            <button onClick={() => handleSocialLogin(googleLogin)} className="btn mt-2 btn-outline">
             <GrGithub /> Login With Github
           </button>
         </div>
