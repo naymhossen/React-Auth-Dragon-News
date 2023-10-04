@@ -21,7 +21,7 @@ const Home = () => {
         </div>
         <div className="md:col-span-2 border">
           {
-            data.map((news) => <Homenews key={news.id} news={news}></Homenews> )
+            data.map((news) => <Homenews key={news._id} news={news}></Homenews> )
           }
         </div>
         <div className="border">

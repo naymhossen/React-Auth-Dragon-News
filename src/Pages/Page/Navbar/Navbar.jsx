@@ -1,6 +1,17 @@
+import { useContext } from "react";
 import { Link, NavLink } from "react-router-dom";
+import { AuthContext } from "../../../Firebase/Authprovider";
 
 const Navbar = () => {
+
+  const {logOut, user} = useContext(AuthContext);
+
+  const handleSignOut = () => {
+    logOut()
+    .then()
+    .catch()
+  }
+
   const navlinks = (
     <>
       <div className="flex items-center">
@@ -52,7 +63,13 @@ const Navbar = () => {
           <img src="https://i.ibb.co/D4qCb8N/user.png" />
         </div>
       </label>
+      {
+        user ? 
+        <button onClick={handleSignOut} className="btn">Sign Out</button>
+        :
         <Link to="/login"><button className="btn">Login</button></Link>
+      }
+        
       </div>
     </div>
   );

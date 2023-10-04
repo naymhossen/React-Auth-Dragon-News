@@ -1,19 +1,34 @@
 import { Link } from "react-router-dom";
 import Navbar from "../Pages/Page/Navbar/Navbar";
+import { useContext } from "react";
+import { AuthContext } from "./Authprovider";
 
 const Register = () => {
+
+  const {createUser} = useContext(AuthContext);
+
+
+  const handleRegistration = (e) => {
+    e.preventDefault()
+    const email = e.target.email.value;
+    const password = e.target.password.value;
+    createUser(email, password)
+    .then()
+    .catch()
+  }
+
   return (
     <>
       <Navbar />
       <div className="w-full mx-auto mt-3 max-w-md p-8 space-y-3 rounded-xl bg-gray-200">
         <h1 className="text-2xl font-bold text-center">Register your account</h1>
         <div className="border "></div>
-        <form className="space-y-6">
+        <form onSubmit={handleRegistration} className="space-y-6">
           <div className="space-y-1 text-sm">
             <label className="block font-bold">Your Name</label>
             <input
-              type="text"
-              name="text"
+              type="name"
+              name="name"
               required
               id="name"
               placeholder="Enter your name"
@@ -23,8 +38,8 @@ const Register = () => {
           <div className="space-y-1 text-sm">
             <label className="block font-bold">Photo URL</label>
             <input
-              type="text"
-              name="text"
+              type="photo"
+              name="photo"
               required
               id="image"
               placeholder="Enter your photo link"

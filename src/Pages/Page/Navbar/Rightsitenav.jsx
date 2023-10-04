@@ -14,10 +14,10 @@ const Rightsitenav = () => {
       <div className="">
         <h2 className="text-2xl font-poppins font-medium mb-4 p-3">Find Us On</h2>
         <div className="p-4 rounded-t-lg">
-          <a className="flex items-center gap-4 border p-3 rounded-t-lg">
+          <a className="flex items-center gap-4 border p-3 rounded-t-lg" href="https://www.facebook.com/naymhossen3.0/">
             <GrFacebook /> Facebook
           </a>
-          <a className="flex items-center gap-4 border p-3 rounded-t-lg">
+          <a className="flex items-center gap-4 border p-3 rounded-t-lg" href="">
             <GrTwitter /> Twitter
           </a>
           <a className="flex items-center gap-4 border p-3 rounded-t-lg">

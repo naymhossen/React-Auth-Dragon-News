@@ -1,12 +1,26 @@
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import Navbar from "../Pages/Page/Navbar/Navbar";
+import { useContext } from "react";
+import { AuthContext } from "./Authprovider";
 
 const Login = () => {
+  const {userSignin} = useContext(AuthContext);
+
+  const location = useLocation();
+  const navigate = useNavigate();
   const handleLogin = (e) => {
     e.preventDefault();
     const email = e.target.email.value;
     const password = e.target.password.value;
-    console.log(email, password);
+    userSignin(email, password)
+    .then(res => {
+      console.log(res);
+
+      //navigate after login
+      navigate(location?.state ? location.state : '/');
+
+    })
+    .catch()
   };
 
   return (
@@ -46,7 +60,7 @@ const Login = () => {
           </button>
         </form>
         <p className="text-xs text-center sm:px-6 font-semibold">
-          Dont’t Have An Account ?{" "}
+          Do not Have An Account
           <span className="text-red-600 font-bold underline">
             <Link to="/register">Register</Link>
           </span>

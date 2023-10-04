@@ -1,9 +1,10 @@
 /* eslint-disable react/prop-types */
 import { GrBookmark } from "react-icons/gr";
 import { BsShare } from "react-icons/bs";
+import { Link } from "react-router-dom";
 
 const Homenews = ({ news }) => {
-  const { title, details, image_url, author } = news;
+  const { title, details, image_url, author, _id } = news;
   return (
     <div>
       <h1 className="font-semibold text-2xl">Dragon News Home</h1>
@@ -31,7 +32,16 @@ const Homenews = ({ news }) => {
       <div className="space-y-4 mt-5">
         <h2 className="text-2xl font-semibold font-poppins">{title}</h2>
         <img src={image_url} alt="" />
-        <p>{details.slice(0, 500)}</p>
+        {details.length > 200 ? (
+          <p>
+            {details.slice(0, 200)}
+            <Link className="text-green-500 font-bold font-poppins animate-pulse" to={`/newsdetails/${_id}`}>
+              Read More...
+            </Link>
+          </p>
+        ) : (
+          <p>{details}</p>
+        )}
       </div>
     </div>
   );
